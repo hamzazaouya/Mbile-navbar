@@ -1,0 +1,311 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+    position: relative;
+}
+
+nav {
+    background-color: #60b4df;
+    height: 3rem
+}
+
+nav .container {
+    display: flex;
+    padding: 0 2rem;
+    max-width: 65rem;
+    margin: 0 auto;
+}
+
+/* ========= Brand Name ========== */
+
+.logo-container {
+    flex: 1;
+}
+
+.logo-container a {
+    color: #FFF;
+    display: flex;
+    height: 3rem;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.logo-container a span {
+    font-weight: 300;
+}
+
+/* ========== Hamburger Icon ======= */
+
+#check {
+    display: none;
+}
+
+.hamburger-container {
+    flex: 1;
+    height: 3rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 2.5rem;
+    width: 2.5rem;
+    cursor: pointer
+}
+
+.hamburger-icon span {
+    height: 3px;
+    width: 1.7rem;
+    background-color: #FFF;
+    border-radius: 3px;
+    transition: .5s;
+}
+
+.hamburger-icon span:nth-of-type(1) {
+    transform: translateY(-7px)
+}
+
+.hamburger-icon span:nth-of-type(3) {
+    transform: translateY(7px)
+}
+
+#check:checked ~ .hamburger-container .hamburger-icon span:nth-of-type(2) {
+    transform: translateX(-1rem);
+    opacity: 0;
+}
+
+#check:checked ~ .hamburger-container .hamburger-icon span:nth-of-type(1) {
+    transform: translateY(3px) rotate(-45deg);
+}
+
+#check:checked ~ .hamburger-container .hamburger-icon span:nth-of-type(3) {
+    transform: translateY(-3px) rotate(45deg);
+}
+
+/* ============= Nav Bar ========== */
+
+.nav-btn {
+    position: fixed;
+    top: 3rem;
+    left: 0;
+    height: calc(100vh - 3rem);
+    width: 100%;
+    background-color: #69bde7;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 1;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: .3s ease;
+}
+
+#check:checked ~ .nav-btn {
+    transform: translate(0);
+    opacity: 1;
+}
+
+.nav-link,
+.log-sign {
+    transform: translateY(15px);
+    opacity: 0;
+}
+
+.nav-link > a {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 2.5rem 0 2rem;
+    height: 4rem;
+    color: #FFF;
+    text-transform: capitalize;
+    font-size: .96rem;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: .3s;
+}
+
+.nav-link:hover > a {
+    background-color: #50a9d6;
+}
+
+.nav-link > a i {
+    transform: rotate(-90deg);
+    transition: .5s;
+    font-size: 1.1rem;
+}
+
+.nav-link:hover > a i {
+    transform: rotate(360deg)
+}
+
+.dropdown {
+    max-height: 0rem;
+    opacity: 0;
+    transition: .5s;
+}
+
+.dropdown-link > a {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    justify-content: space-between;
+    color: #FFF;
+    text-transform: capitalize;
+    font-size: .9rem;
+    padding: 1rem 2.5rem;
+    background-color: #3183ac;
+}
+
+.dropdown-link:hover > a {
+    background-color: #266280
+}
+
+.dropdown-link > a > i {
+    transform: rotate(-90deg);
+    transition: .5s;
+}
+
+.dropdown-link:hover > a > i {
+    transform: rotate(360deg)
+}
+
+.nav-link:hover > .dropdown {
+    max-height: 40rem;
+    opacity: 1;
+}
+
+.dropdown.second {
+    opacity: 0;
+    max-height: 0rem;
+    z-index: -1;
+}
+
+.dropdown-link:hover > .dropdown.second {
+    opacity: 1;
+    max-height: 30rem;
+}
+
+.dropdown.second a {
+    padding-left: 3rem;
+}
+
+.dropdown.second .dropdown.second a {
+    padding-left: 3.5rem
+}
+
+.arrow {
+    position: absolute;
+    top: -5.5px;
+    left: 10%;
+    transform: rotate(45deg);
+    height: 11px;
+    width: 11px;
+    background-color: #69bde7;
+    transition: .3s;
+}
+
+.nav-link:hover .arrow {
+    background-color: #50a9d6
+}
+
+.dropdown.second .arrow {
+    display: none
+}
+
+.log-sign {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2rem;
+}
+
+.log-sign div a {
+    display: block;
+    padding: .5rem 1.3rem;
+    border: 1px solid #FFF;
+    border-radius: 3rem;
+    text-transform: uppercase;
+    font-size: .9rem;
+    transition: .3s;
+}
+
+.log-sign div:first-of-type a {
+    margin-right: .8rem;
+}
+
+.log-sign .log-in a,
+.log-sign .sign-up a:hover {
+    background-color: transparent;
+    color: #FFF;
+}
+
+.log-sign .sign-up a,
+.log-sign .log-in a:hover {
+    background-color: #FFF;
+    color: #60b4df
+}
+
+#check:checked ~ .nav-btn .nav-link,
+#check:checked ~ .nav-btn .log-sign {
+    animation: animation .5s ease forwards var(--i)
+}
+
+
+/* ============== Slider ============ */
+
+/* ============= Animatin ============ */
+
+@keyframes animation {
+    from {
+        opacity: 0;
+        transform: translateY(15px)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+.slider {
+    height: calc(100vh - 3rem);
+    background: url(../img/bg.jpg) no-repeat center center / cover;
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #38a5ee;
+    opacity: .5;
+}
